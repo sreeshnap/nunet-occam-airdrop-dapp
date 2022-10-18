@@ -5,8 +5,8 @@ import { NetworkConnector } from "./NetworkConnector";
 export enum SupportedChainId {
   MAINNET = 1,
   ROPSTEN = 3,
-  GOERLI = 5,
   // KOVAN = 42,
+  GOERLI = 5,
 }
 
 // export enum NetworkName {
@@ -18,8 +18,8 @@ export enum SupportedChainId {
 export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.MAINNET,
   SupportedChainId.ROPSTEN,
-  SupportedChainId.GOERLI,
   // SupportedChainId.KOVAN,
+  SupportedChainId.GOERLI,
 ];
 
 const INFURA_KEY =  process.env.NEXT_PUBLIC_INFURA_KEY || "";
@@ -31,9 +31,8 @@ if (typeof INFURA_KEY === "undefined") {
 const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ROPSTEN]: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
-  [SupportedChainId.GOERLI]: `https://goerli.infura.io/v3/${INFURA_KEY}`,
-
   // [SupportedChainId.KOVAN]: `https://kovan.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.GOERLI]: `https://goerli.infura.io/v3/${INFURA_KEY}`,
 };
 
 export const injected = new InjectedConnector({

@@ -5,8 +5,9 @@ import { SupportedChainId } from "./connectors";
 const NETWORK_POLLING_INTERVALS: { [chainId: number]: number } = {
     [SupportedChainId.MAINNET]: 1000,
     [SupportedChainId.ROPSTEN]: 1000,
-    [SupportedChainId.KOVAN]: 1000,
     [SupportedChainId.GOERLI]: 1000,
+    [SupportedChainId.KOVAN]: 1000,
+    
 
   };
 

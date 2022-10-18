@@ -8,16 +8,19 @@ export const awsEnvironment = {
 
 export enum appEnv {
   ropsten = "ropsten-occam",
-  mainnet = "mainnet-occam",
   goerli = "goerli-occam",
+  mainnet = "mainnet-occam",
+  
 }
 
 const s3ConfigFolder = <string>process.env.S3_CONFIG_FOLDER;
 
 const envS3Bucket: { [key in appEnv]: string } = {
   [appEnv.ropsten]: `snet-ropsten-v2-configs/${s3ConfigFolder}`,
-  [appEnv.mainnet]: `snet-mainnet-v2-configs/${s3ConfigFolder}`,
   [appEnv.goerli]: `snet-goerli-v2-configs/${s3ConfigFolder}`,
+  [appEnv.mainnet]: `snet-mainnet-v2-configs/${s3ConfigFolder}`,
+
+  
 
 };
 
@@ -25,16 +28,18 @@ const zoneName = "singularitynet.io";
 
 const domainNames: { [key in appEnv]: string } = {
   [appEnv.ropsten]: <string>process.env.ROPSTEN_DOMAIN_NAME,
-  [appEnv.mainnet]: <string>process.env.MAINNET_DOMAIN_NAME,
   [appEnv.goerli]: <string>process.env.GOERLI_DOMAIN_NAME,
+  [appEnv.mainnet]: <string>process.env.MAINNET_DOMAIN_NAME,
+  
 
 };
 
 const githubRepo = "singnet/nunet-occam-airdrop-dapp";
 const githubBranch: { [key in string]: string } = {
   [appEnv.ropsten]: "development",
-  [appEnv.mainnet]: "master",
   [appEnv.goerli]: "development",
+  [appEnv.mainnet]: "master",
+  
   
 };
 
@@ -83,8 +88,9 @@ const createConfig = (stage: appEnv): Config => ({
 });
 
 config.set(appEnv.ropsten, createConfig(appEnv.ropsten));
-config.set(appEnv.mainnet, createConfig(appEnv.mainnet));
 config.set(appEnv.goerli, createConfig(appEnv.goerli));
+config.set(appEnv.mainnet, createConfig(appEnv.mainnet));
+
 
 
 export default config;
